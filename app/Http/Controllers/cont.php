@@ -16,6 +16,13 @@ class cont extends Controller
         return view('registro');
     }
 
+    public function autores(){
+        return view('autores');
+    }
+    public function Libros(){
+        return view('Libros');
+    }
+
     public function registrar(Request $req){
         
         $req->validate([
@@ -30,6 +37,20 @@ class cont extends Controller
         ]);
         
         return redirect('1')->with('success',$req -> titulo);
+
+        
+    }
+
+    public function regis(Request $req){
+        
+        $req->validate([
+            'nombre' => 'required | min:4',
+            'fecha' => 'required ' ,
+            'numero' => 'required | max:4 ' 
+
+        ]);
+        
+        return redirect('2')->with('success','Autor Guardado');
 
         
     }
